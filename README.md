@@ -1,2 +1,2 @@
-# ysm
-Yet another State Machine framework
+# YSM
+**Y**et another **S**tate **M**achine framework
