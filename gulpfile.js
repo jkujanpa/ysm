@@ -3,7 +3,7 @@ var mocha = require('gulp-mocha');
 
 gulp.task('test', function() {
   gulp.
-    src(['test/testFsm.js']).
+    src(['test/testFsm.js', 'test/testHsm.js']).
     pipe(mocha()).
     on('error', function() {
       this.emit('end');

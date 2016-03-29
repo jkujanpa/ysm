@@ -25,7 +25,8 @@
   },
   "scripts": {
     "test-fsm": "mocha test/testFsm.js",
-    "test-all": "mocha test/testFsm.js",
+    "test-hsm": "mocha test/testHsm.js",
+    "test-all": "mocha",
     "test": "gulp test",
     "watch": "gulp watch"
   },

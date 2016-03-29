@@ -1,7 +1,7 @@
 
 
 const assert = require('assert');
-const testFsm = require('../lib/testSm1.js').testFsm;
+const testFsm = require('./testSm1.js').testFsm;
 
 //const sm = testFsm();
 
