@@ -1,0 +1,37 @@
+{
+  "name": "ysm",
+  "version": "0.0.1",
+  "description": "Yet another State Machine framework",
+  "author": {
+    "name": "Jyrki Kujanpää",
+    "email": "jyrki.kujanpaa@gmail.com"
+  },
+  "homepage": "https://github.com/jkujanpa/ysm",
+  "keywords": [
+    "State Machine",
+    "Flat State Machine",
+    "Hierarchical State Machine"
+  ],
+  "bugs": {
+    "url": "https://github.com/jkujanpa/ysm/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jkujanpa/ysm.git"
+  },
+  "main": "ysm.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test-fsm": "mocha test/testFsm.js",
+    "test-all": "mocha test/testFsm.js",
+    "test": "gulp test",
+    "watch": "gulp watch"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-mocha": "^2.2.0",
+    "mocha": "^2.4.5"
+  }
+}
