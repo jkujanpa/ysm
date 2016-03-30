@@ -3,7 +3,7 @@
 
 const ysm = require('../ysm');
 const yFsm = ysm.yFsm;
-const yState = ysm.yState;
+const yState = ysm.yFState;
 
 
 const testFsm = function() {

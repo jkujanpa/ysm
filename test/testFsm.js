@@ -3,7 +3,6 @@
 const assert = require('assert');
 const testFsm = require('./testSm1.js').testFsm;
 
-//const sm = testFsm();
 
 /**
  *  This test suite is meant to be run through gulp (use the `npm run watch`)
@@ -16,7 +15,7 @@ describe('Test FSM', function() {
 
         const sm = testFsm();
 
-        it('should be in state 1', function() {
+        it('should be initialized to state 1', function() {
             assert.strictEqual(sm.getState(), 1);
         });
         it('should have test variable with value 0', function() {
@@ -48,17 +47,6 @@ describe('Test FSM', function() {
             });
         });
 
-        /*
-        describe('#toJSON', function() {
-            it('should have correct values in JSON dump', function() {
-                var jsonData = item.toJSON()
-                assert.strictEqual(jsonData.id, (0x0102 << 16) + 0x0B0C);
-                assert.equal(jsonData.date.valueOf(), refDate.valueOf());
-                //assert.equal(jsonData.expirationDate.valueOf(), refDate2.valueOf());
-                assert(jsonData.data);
-            });
-        });
-        */
   }); // #methods
 
 
