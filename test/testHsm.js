@@ -13,7 +13,7 @@ describe('Test HSM', function() {
 
     describe('#constructor', function() {
 
-        const sm = testHsm();
+        var sm = testHsm();
 
         it('should be initialized to state 111', function() {
             assert.strictEqual(sm.getState(), 111);
@@ -22,14 +22,37 @@ describe('Test HSM', function() {
             assert.strictEqual(sm.getVar(), "0");
         });
 
-    }); // #constructor
+    });
 
 
-    describe('#methods', function() {
+    describe('#dispatch, signal handling in state hierarchy', function() {
 
-        const sm = testHsm();
+        var sm = testHsm();
 
-    }); // #methods
+        it('signal 3 handeled in state 111', function() {
+            sm.dispatch({signal:"3"})
+            assert.strictEqual(sm.getVar(), "111:3");
+        });
+        it('signal 1 handeled in state 11', function() {
+            sm.dispatch({signal:"1"})
+            assert.strictEqual(sm.getVar(), "11:1");
+        });
+        it('signal 4 handeled in state 1', function() {
+            sm.dispatch({signal:"4"})
+            assert.strictEqual(sm.getVar(), "1:4");
+        });
 
+    });
+
+    describe('#dispatch, state transfers in state hierarchy', function() {
+
+        var sm = testHsm();
+
+        it('state transfer from state 11 to 22', function() {
+            sm.dispatch({signal:"2"})
+            assert.strictEqual(sm.getState(), 22);
+        });
+
+    });
 
 });

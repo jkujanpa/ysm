@@ -14,3 +14,7 @@ module.exports.yFsm = yfsm.yFsm;
 module.exports.yEvent = yhsm.yEvent;
 module.exports.yHState = yhsm.yState;
 module.exports.yHsm = yhsm.yHsm;
+
+module.exports.UNHANDLED = yhsm.UNHANDLED;
+module.exports.HANDLED = yhsm.HANDLED;
+module.exports.TRANSFER = yhsm.TRANSFER;

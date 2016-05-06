@@ -25,19 +25,15 @@ const testHsm = function() {
         name: "state1",
         handler(event) {
             switch (event.signal) {
-            case "1":
-                console.log("state1:1");
-                testVar = "1:1";
-                return YSM_HANDLED;
+            case "4":
+                console.log("state1:4");
+                testVar = "1:4";
+                return ysm.HANDLED;
             case "2":
                 console.log("state1:2");
                 return sm.transfer(state2);
-            case "3":
-                console.log("state1:3");
-                testVar = "1:3";
-                return YSM_HANDLED;
             }
-            return YSM_UNHANDLED;
+            return ysm.UNHANDLED;
         },
         init(event) {
             console.log("INIT state1 ==> state11");
@@ -61,15 +57,15 @@ const testHsm = function() {
             case "1":
                 console.log("state11:1");
                 testVar = "11:1";
-                return YSM_HANDLED;
+                return ysm.HANDLED;
             case "2":
                 console.log("state11:2");
                 return sm.transfer(state22);
             }
-            return YSM_UNHANDLED;
+            return ysm.UNHANDLED;
         },
         init(event) {
-            console.log("INIT state11");
+            console.log("INIT state11 ==> state111");
             return sm.transfer(state111);
         },
         entry(event) {
@@ -87,7 +83,13 @@ const testHsm = function() {
         name: "state111",
         parent: state11,
         handler(event) {
-            return YSM_UNHANDLED;
+            switch (event.signal) {
+            case "3":
+                console.log("state111:3");
+                testVar = "111:3";
+                return ysm.HANDLED;
+            }
+            return ysm.UNHANDLED;
         },
         init(event) {
             console.log("INIT state111");
@@ -136,6 +138,8 @@ const testHsm = function() {
     });
 
     const state22 = yState({
+        name: "state22",
+        parent: state2,
         handler(event) {
             switch (event.signal) {
             case "1":
